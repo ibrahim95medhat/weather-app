@@ -7,31 +7,31 @@ let cityCode;
 
 async function weatherApp (){
     let data= await fetch(`http://api.weatherapi.com/v1/forecast.json?key=e6fab524e7ea4760a0c52819230608&q=${cityCode}&days=7`)
-    data=await data.json();
-    console.log(data);
+    let response=await data.json();
+    console.log(response);
     
-   let temp=data.current.temp_c;
-   let src=data.forecast.forecastday[0].day.condition.icon;
-   let maxTemp_1=data.forecast.forecastday[1].day.maxtemp_c;
-   let minTemp_1=data.forecast.forecastday[1].day.mintemp_c;
-   let src_1=data.forecast.forecastday[1].day.condition.icon;
-   let src_2=data.forecast.forecastday[2].day.condition.icon;
-   let maxTemp_2=data.forecast.forecastday[2].day.maxtemp_c;
-   let minTemp_2=data.forecast.forecastday[2].day.mintemp_c;
-   let day1=getDayName(new Date(data.forecast.forecastday[1].date));
-   let day2=getDayName(new Date(data.forecast.forecastday[2].date));
-   let day3=getDayName(new Date(data.forecast.forecastday[3].date));
-   let description=data.current.condition.text;
-   let description_1=data.forecast.forecastday[1].day.condition.text;
-   let description_2=data.forecast.forecastday[2].day.condition.text;
-   let clouds=data.current.cloud;
-   let windSpeed=data.current.gust_kph;
-   let windDirection=data.current.wind_dir;
-    let location=data.location.name;
+   let temp=response.current.temp_c;
+   let src=response.forecast.forecastday[0].day.condition.icon;
+   let maxTemp_1=response.forecast.forecastday[1].day.maxtemp_c;
+   let minTemp_1=response.forecast.forecastday[1].day.mintemp_c;
+   let src_1=response.forecast.forecastday[1].day.condition.icon;
+   let src_2=response.forecast.forecastday[2].day.condition.icon;
+   let maxTemp_2=response.forecast.forecastday[2].day.maxtemp_c;
+   let minTemp_2=response.forecast.forecastday[2].day.mintemp_c;
+   let day1=getDayName(new Date(response.forecast.forecastday[1].date));
+   let day2=getDayName(new Date(response.forecast.forecastday[2].date));
+   let day3=getDayName(new Date(response.forecast.forecastday[3].date));
+   let description=response.current.condition.text;
+   let description_1=response.forecast.forecastday[1].day.condition.text;
+   let description_2=response.forecast.forecastday[2].day.condition.text;
+   let clouds=response.current.cloud;
+   let windSpeed=response.current.gust_kph;
+   let windDirection=response.current.wind_dir;
+    let location=response.location.name;
    
 
 todayCard.innerHTML=`<div class="weather-table table-left p-4 position-relative col-12 col-lg-4">
-<div class="date p-2 d-flex justify-content-between"><div class="day">${day1}</div><div class="day-date">${new Date(data.forecast.forecastday[1].date).getDate()+getMonthName(new Date())}</div></div>
+<div class="date p-2 d-flex justify-content-between"><div class="day">${day1}</div><div class="day-date">${new Date(response.forecast.forecastday[1].date).getDate()+getMonthName(new Date())}</div></div>
 <div class="location mt-4 p-2">${location}</div>
 <div class="temp-icon d-flex justify-content-between align-items-center"><div class="temperature-day p-2">${temp}<sup>o</sup>c</div>
 <div class="icon"><img src=${src}></div></div>
