@@ -6,7 +6,7 @@ let cityCode;
 
 
 async function weatherApp (){
-    let data= await fetch(`http://api.weatherapi.com/v1/forecast.json?key=e6fab524e7ea4760a0c52819230608&q=${cityCode}&days=7`)
+    let data= await fetch(`https://api.weatherapi.com/v1/forecast.json?key=e6fab524e7ea4760a0c52819230608&q=${cityCode}&days=7`)
     let response=await data.json();
     console.log(response);
     
