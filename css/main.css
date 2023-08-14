@@ -214,7 +214,6 @@ body{
         font-size: 10px !important;
     }
     .detail-img{
-
         display: flex;
         flex-flow: column;
     }

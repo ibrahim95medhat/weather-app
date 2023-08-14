@@ -27,7 +27,7 @@ async function weatherApp (){
    let clouds=response.current.cloud;
    let windSpeed=response.current.gust_kph;
    let windDirection=response.current.wind_dir;
-    let location=response.location.name;
+   let location=response.location.name;
    
 
 todayCard.innerHTML=`<div class="weather-table table-left p-4 position-relative col-12 col-lg-4">
@@ -37,7 +37,7 @@ todayCard.innerHTML=`<div class="weather-table table-left p-4 position-relative 
 <div class="icon"><img src=${src}></div></div>
 
 <div class="description p-2">${description}</div>
-<div class="more-details d-flex justify-content-between p-2"><div class="detail-img text-center"><img src="../images/icon-umberella.png" class="p-2"> ${clouds} %</div><div class="detail-img text-center"><img src="../images/icon-wind.png" class="p-2"> ${windSpeed} km/h</div><div class="detail-img text-center"><img src="../images/icon-compass.png" class="p-2">${windDirection}</div></div>
+<div class="more-details d-flex justify-content-between p-2"><div class="detail-img text-center"><img src="../images/iconumberella.png" class="p-2"> ${clouds} %</div><div class="detail-img text-center"><img src="../images/iconwind.png" class="p-2"> ${windSpeed} km/h</div><div class="detail-img text-center"><img src="../images/iconcompass.png" class="p-2">${windDirection}</div></div>
 </div>
 <div class="weather-table text-center middle p-4 position-relative col-12 col-lg-4">
 <div class="date p-2">${day2}</div>
@@ -78,5 +78,12 @@ function getMonthName(date = new Date(), locale = 'en-US') {
     return date.toLocaleDateString(locale, {month: 'long'});
   }
   
+
+  document.addEventListener("click",()=>{
+    $(".weather-container").hide(2000);
+  })
+    
+   
+
 
   
